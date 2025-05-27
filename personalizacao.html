@@ -4,11 +4,441 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personalização - Stampô</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header-top {
+            background-color: #6c63ff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        /* Banner */
+        .page-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/banner-cotacao.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .page-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos do Formulário */
+        .quote-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 1rem;
+        }
+        
+        .form-section h2 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .form-section h2 i {
+            color: #6c63ff;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+            outline: none;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .radio-option:hover {
+            background: #f1f3f5;
+        }
+        
+        .radio-option input {
+            margin-right: 0.6rem;
+        }
+        
+        .size-quantities {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .size-quantity {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+        
+        .size-quantity span {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .size-quantity input {
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem;
+        }
+        
+        .form-help {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.4rem;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .form-checkbox input {
+            margin-top: 0.3rem;
+        }
+        
+        .form-checkbox label {
+            margin-bottom: 0;
+        }
+        
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #6c63ff;
+            color: #6c63ff;
+        }
+        
+        .btn-outline:hover {
+            background: #f8f9fa;
+        }
+        
+        .btn-primary {
+            background: #6c63ff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a52e0;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Seção Como Funciona */
+        .how-it-works {
+            padding: 60px 0;
+            background: #f5f7fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: #6c63ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+        
+        .step-item h3 {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        /* Seção FAQ */
+        .faq-section {
+            padding: 60px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .faq-toggle {
+            color: #6c63ff;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            background: #f9f9f9;
+            display: none;
+        }
+        
+        .faq-answer p {
+            padding: 20px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2a2a2a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #6c63ff;
+        }
+        
+        .footer-links i {
+            margin-right: 10px;
+            width: 20px;
+            color: #6c63ff;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            color: white;
+            background: #444;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #6c63ff;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .quote-container {
+                padding: 1.5rem;
+            }
+            
+            .page-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Anúncio superior -->
@@ -75,22 +505,22 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Nome Completo*</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
                             </div>
                             <div class="form-group">
                                 <label for="email">E-mail*</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Telefone/WhatsApp*</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
                             </div>
                             <div class="form-group">
                                 <label for="city">Cidade/Estado</label>
-                                <input type="text" id="city" name="city">
+                                <input type="text" id="city" name="city" placeholder="Ex: São Paulo, SP">
                             </div>
                         </div>
                     </div>
@@ -101,44 +531,44 @@
                         <div class="form-group">
                             <label>Tipo de Camiseta*</label>
                             <div class="radio-group">
-                                <div class="radio-option">
+                                <label class="radio-option">
                                     <input type="radio" id="type-basic" name="shirt_type" value="Básica" checked>
-                                    <label for="type-basic">Básica</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Básica</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="type-premium" name="shirt_type" value="Premium">
-                                    <label for="type-premium">Premium</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Premium</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="type-polo" name="shirt_type" value="Polo">
-                                    <label for="type-polo">Polo</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Polo</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="type-other" name="shirt_type" value="Outro">
-                                    <label for="type-other">Outro</label>
-                                </div>
+                                    <span>Outro</span>
+                                </label>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label>Cor da Camiseta*</label>
                             <div class="radio-group">
-                                <div class="radio-option">
+                                <label class="radio-option">
                                     <input type="radio" id="color-white" name="shirt_color" value="Branca" checked>
-                                    <label for="color-white">Branca</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Branca</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="color-black" name="shirt_color" value="Preta">
-                                    <label for="color-black">Preta</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Preta</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="color-gray" name="shirt_color" value="Cinza">
-                                    <label for="color-gray">Cinza</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Cinza</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="color-other" name="shirt_color" value="Outra">
-                                    <label for="color-other">Outra</label>
-                                </div>
+                                    <span>Outra</span>
+                                </label>
                             </div>
                         </div>
                         
@@ -171,22 +601,22 @@
                         <div class="form-group">
                             <label>Tipo de Estampa*</label>
                             <div class="radio-group">
-                                <div class="radio-option">
+                                <label class="radio-option">
                                     <input type="radio" id="print-front" name="print_location" value="Frente" checked>
-                                    <label for="print-front">Frente</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Frente</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="print-back" name="print_location" value="Costas">
-                                    <label for="print-back">Costas</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Costas</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="print-both" name="print_location" value="Frente e Costas">
-                                    <label for="print-both">Frente e Costas</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Frente e Costas</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="print-sleeve" name="print_location" value="Manga">
-                                    <label for="print-sleeve">Manga</label>
-                                </div>
+                                    <span>Manga</span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -197,26 +627,28 @@
                         <div class="form-group">
                             <label>Você já tem a arte pronta?*</label>
                             <div class="radio-group">
-                                <div class="radio-option">
+                                <label class="radio-option">
                                     <input type="radio" id="art-yes" name="has_art" value="Sim" checked>
-                                    <label for="art-yes">Sim, tenho a arte pronta</label>
-                                </div>
-                                <div class="radio-option">
+                                    <span>Sim, tenho a arte pronta</span>
+                                </label>
+                                <label class="radio-option">
                                     <input type="radio" id="art-no" name="has_art" value="Não">
-                                    <label for="art-no">Não, preciso de ajuda para criar</label>
-                                </div>
+                                    <span>Não, preciso de ajuda para criar</span>
+                                </label>
                             </div>
                         </div>
                         
                         <div class="form-group" id="art-upload-group">
-                            <label for="art-file">Envie sua arte (PNG, JPG ou PDF)*</label>
+                            <label for="art-file" id="art-file-label">Envie sua arte (PNG, JPG ou PDF)*</label>
                             <input type="file" id="art-file" name="attachment" accept=".png,.jpg,.jpeg,.pdf">
                             <p class="form-help">Formatos aceitos: PNG, JPG, PDF. Tamanho máximo: 10MB.</p>
+                            <div id="file-preview" style="margin-top: 10px;"></div>
                         </div>
                         
                         <div class="form-group" id="art-description-group" style="display: none;">
                             <label for="art-description">Descreva a arte que você deseja*</label>
                             <textarea id="art-description" name="art_description" rows="4" placeholder="Descreva em detalhes a arte que você gostaria que criássemos para sua camiseta..."></textarea>
+                            <p class="form-help">Inclua cores, texto, estilo e qualquer outra informação relevante.</p>
                         </div>
                     </div>
                     
@@ -235,13 +667,17 @@
                         
                         <div class="form-group form-checkbox">
                             <input type="checkbox" id="privacy" name="privacy_agreement" required>
-                            <label for="privacy">Concordo com a <a href="#">Política de Privacidade</a> e autorizo o contato por e-mail e WhatsApp*</label>
+                            <label for="privacy">Concordo com a <a href="#" style="color: #6c63ff;">Política de Privacidade</a> e autorizo o contato por e-mail e WhatsApp*</label>
                         </div>
                     </div>
                     
                     <div class="form-actions">
-                        <button type="reset" class="btn btn-outline">Limpar Formulário</button>
-                        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+                        <button type="reset" class="btn btn-outline">
+                            <i class="fas fa-eraser"></i> Limpar Formulário
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                        </button>
                     </div>
                 </form>
             </div>
@@ -253,6 +689,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Como Funciona</h2>
+                <p>O processo simples para personalizar suas camisetas</p>
             </div>
             
             <div class="steps-container">
@@ -291,42 +728,12 @@
         </div>
     </section>
 
-    <!-- Inspirações -->
-    <section class="inspiration-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Inspirações</h2>
-                <p>Confira alguns designs criados por nossos clientes</p>
-            </div>
-            
-            <div class="inspiration-grid">
-                <div class="inspiration-item">
-                    <img src="images/inspiration-1.jpg" alt="Inspiração 1">
-                </div>
-                <div class="inspiration-item">
-                    <img src="images/inspiration-2.jpg" alt="Inspiração 2">
-                </div>
-                <div class="inspiration-item">
-                    <img src="images/inspiration-3.jpg" alt="Inspiração 3">
-                </div>
-                <div class="inspiration-item">
-                    <img src="images/inspiration-4.jpg" alt="Inspiração 4">
-                </div>
-                <div class="inspiration-item">
-                    <img src="images/inspiration-5.jpg" alt="Inspiração 5">
-                </div>
-                <div class="inspiration-item">
-                    <img src="images/inspiration-6.jpg" alt="Inspiração 6">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq-section">
         <div class="container">
             <div class="section-title">
                 <h2>Perguntas Frequentes</h2>
+                <p>Tire suas dúvidas sobre personalização de camisetas</p>
             </div>
             
             <div class="faq-container">
@@ -379,20 +786,6 @@
                         <p>Aceitamos pagamento via PIX, transferência bancária, boleto e cartão de crédito (parcelamento em até 3x sem juros). Para pedidos corporativos, oferecemos condições especiais de pagamento.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Fique por dentro das novidades</h2>
-                <p>Cadastre-se para receber ofertas exclusivas, lançamentos e dicas de estilo.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
-                    <button type="submit" class="newsletter-btn">Inscrever-se</button>
-                </form>
             </div>
         </div>
     </section>
@@ -457,55 +850,119 @@
         </div>
     </footer>
 
-    <!-- Carrinho flutuante -->
-    <div class="cart-popup" id="cart-popup">
-        <div class="cart-header">
-            <h3>Seu Carrinho</h3>
-            <button class="cart-close" id="cart-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="cart-items" id="cart-items">
-            <!-- Os itens do carrinho serão inseridos aqui via JavaScript -->
-        </div>
-        
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-price">R$ 0,00</span>
-            </div>
-            <button class="checkout-btn" id="checkout-btn">Finalizar no Instagram</button>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
     <script>
-        // Script para alternar entre upload de arte e descrição
         document.addEventListener('DOMContentLoaded', function() {
+            // Alternar entre upload de arte e descrição
             const artYesRadio = document.getElementById('art-yes');
             const artNoRadio = document.getElementById('art-no');
             const artUploadGroup = document.getElementById('art-upload-group');
             const artDescriptionGroup = document.getElementById('art-description-group');
             
-            artYesRadio.addEventListener('change', function() {
-                if (this.checked) {
+            function toggleArtFields() {
+                if (artYesRadio.checked) {
                     artUploadGroup.style.display = 'block';
                     artDescriptionGroup.style.display = 'none';
                     document.getElementById('art-file').setAttribute('required', '');
                     document.getElementById('art-description').removeAttribute('required');
-                }
-            });
-            
-            artNoRadio.addEventListener('change', function() {
-                if (this.checked) {
+                } else {
                     artUploadGroup.style.display = 'none';
                     artDescriptionGroup.style.display = 'block';
                     document.getElementById('art-file').removeAttribute('required');
                     document.getElementById('art-description').setAttribute('required', '');
                 }
+            }
+            
+            artYesRadio.addEventListener('change', toggleArtFields);
+            artNoRadio.addEventListener('change', toggleArtFields);
+            toggleArtFields(); // Inicializar estado
+            
+            // Preview do arquivo de arte
+            const fileInput = document.getElementById('art-file');
+            const filePreview = document.getElementById('file-preview');
+            const fileLabel = document.getElementById('art-file-label');
+            
+            if (fileInput) {
+                fileInput.addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        fileLabel.textContent = `Arte selecionada: ${file.name}`;
+                        
+                        // Mostrar preview para imagens
+                        if (file.type.match('image.*')) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                filePreview.innerHTML = `
+                                    <img src="${e.target.result}" alt="Preview da arte" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; padding: 5px; border-radius: 4px;">
+                                    <p style="font-size: 0.8rem; margin-top: 5px;">Visualização da arte</p>
+                                `;
+                            };
+                            reader.readAsDataURL(file);
+                        } else {
+                            filePreview.innerHTML = `<p style="font-size: 0.8rem;">Arquivo enviado: ${file.name}</p>`;
+                        }
+                    } else {
+                        fileLabel.textContent = 'Envie sua arte (PNG, JPG ou PDF)*';
+                        filePreview.innerHTML = '';
+                    }
+                });
+            }
+            
+            // Validação do formulário
+            const quoteForm = document.getElementById('quote-form');
+            if (quoteForm) {
+                quoteForm.addEventListener('submit', function(e) {
+                    // Verificar se pelo menos um tamanho foi selecionado
+                    const quantities = document.querySelectorAll('.size-quantity input');
+                    let totalQuantity = 0;
+                    quantities.forEach(q => totalQuantity += parseInt(q.value) || 0);
+                    
+                    if (totalQuantity === 0) {
+                        alert('Por favor, selecione pelo menos uma camiseta (quantidade em algum tamanho)');
+                        e.preventDefault();
+                        return false;
+                    }
+                    
+                    // Verificar se o arquivo é válido (se aplicável)
+                    if (artYesRadio.checked && fileInput.files.length === 0) {
+                        alert('Por favor, envie o arquivo com sua arte');
+                        e.preventDefault();
+                        return false;
+                    }
+                    
+                    // Feedback visual durante o envio
+                    const submitBtn = quoteForm.querySelector('button[type="submit"]');
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                    submitBtn.disabled = true;
+                });
+            }
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Fechar todas as respostas primeiro
+                    document.querySelectorAll('.faq-answer').forEach(a => {
+                        a.style.display = 'none';
+                        a.previousElementSibling.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                    });
+                    
+                    // Abrir a resposta clicada se não estava aberta
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                        question.querySelector('.faq-toggle i').className = 'fas fa-minus';
+                    }
+                });
             });
-        });
-    </script>
-</body>
-</html>
+            
+            // Máscara para telefone
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 11) value = value.substring(0, 11);
+                    
+                    if (value.length > 0) {
+                        value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4}).*/, '($1) $2-$3');
