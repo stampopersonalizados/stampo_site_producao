@@ -54,170 +54,196 @@
     <!-- Banner da página -->
     <section class="page-banner">
         <div class="container">
-            <h1>Personalize Sua Camiseta</h1>
-            <p>Crie uma peça única com seu estilo e personalidade</p>
+            <h1>Solicite sua Cotação</h1>
+            <p>Preencha o formulário abaixo para solicitar um orçamento personalizado</p>
         </div>
     </section>
 
-    <!-- Personalização -->
+    <!-- Formulário de Cotação -->
     <section class="customization-section">
         <div class="container">
-            <div class="customization-container">
-                <div class="customization-preview">
-                    <h2>Visualização</h2>
-                    <div class="preview-container">
-                        <div class="tshirt-preview">
-                            <img src="images/tshirt-white.png" alt="Camiseta para personalização" id="tshirt-base">
-                            <div class="design-preview" id="design-preview">
-                                <!-- A arte será exibida aqui via JavaScript -->
+            <div class="quote-container">
+                <form id="quote-form" action="https://formsubmit.co/stampopersonalizados@gmail.com" method="POST" enctype="multipart/form-data">
+                    <!-- Campo oculto para identificar o formulário -->
+                    <input type="hidden" name="_subject" value="Nova Cotação de Personalização - Site Stampô">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://stampopersonalizados.github.io/stampo-site/obrigado.html">
+                    
+                    <div class="form-section">
+                        <h2><i class="fas fa-user"></i> Seus Dados</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome Completo*</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail*</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
                         </div>
                         
-                        <div class="preview-controls">
-                            <div class="preview-control">
-                                <label>Girar:</label>
-                                <button class="preview-btn" id="rotate-left"><i class="fas fa-undo"></i></button>
-                                <button class="preview-btn" id="rotate-right"><i class="fas fa-redo"></i></button>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefone/WhatsApp*</label>
+                                <input type="tel" id="phone" name="phone" required>
                             </div>
-                            
-                            <div class="preview-control">
-                                <label>Tamanho:</label>
-                                <button class="preview-btn" id="size-down"><i class="fas fa-minus"></i></button>
-                                <button class="preview-btn" id="size-up"><i class="fas fa-plus"></i></button>
+                            <div class="form-group">
+                                <label for="city">Cidade/Estado</label>
+                                <input type="text" id="city" name="city">
                             </div>
-                            
-                            <div class="preview-control">
-                                <label>Posição:</label>
-                                <div class="position-controls">
-                                    <button class="preview-btn" id="move-up"><i class="fas fa-arrow-up"></i></button>
-                                    <div class="horizontal-controls">
-                                        <button class="preview-btn" id="move-left"><i class="fas fa-arrow-left"></i></button>
-                                        <button class="preview-btn" id="move-right"><i class="fas fa-arrow-right"></i></button>
-                                    </div>
-                                    <button class="preview-btn" id="move-down"><i class="fas fa-arrow-down"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2><i class="fas fa-tshirt"></i> Detalhes do Pedido</h2>
+                        
+                        <div class="form-group">
+                            <label>Tipo de Camiseta*</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="type-basic" name="shirt_type" value="Básica" checked>
+                                    <label for="type-basic">Básica</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="type-premium" name="shirt_type" value="Premium">
+                                    <label for="type-premium">Premium</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="type-polo" name="shirt_type" value="Polo">
+                                    <label for="type-polo">Polo</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="type-other" name="shirt_type" value="Outro">
+                                    <label for="type-other">Outro</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Cor da Camiseta*</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="color-white" name="shirt_color" value="Branca" checked>
+                                    <label for="color-white">Branca</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="color-black" name="shirt_color" value="Preta">
+                                    <label for="color-black">Preta</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="color-gray" name="shirt_color" value="Cinza">
+                                    <label for="color-gray">Cinza</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="color-other" name="shirt_color" value="Outra">
+                                    <label for="color-other">Outra</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Tamanhos e Quantidades*</label>
+                            <div class="size-quantities">
+                                <div class="size-quantity">
+                                    <span>P</span>
+                                    <input type="number" name="quantity_p" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>M</span>
+                                    <input type="number" name="quantity_m" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>G</span>
+                                    <input type="number" name="quantity_g" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>GG</span>
+                                    <input type="number" name="quantity_gg" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>XGG</span>
+                                    <input type="number" name="quantity_xgg" min="0" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Tipo de Estampa*</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="print-front" name="print_location" value="Frente" checked>
+                                    <label for="print-front">Frente</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="print-back" name="print_location" value="Costas">
+                                    <label for="print-back">Costas</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="print-both" name="print_location" value="Frente e Costas">
+                                    <label for="print-both">Frente e Costas</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="print-sleeve" name="print_location" value="Manga">
+                                    <label for="print-sleeve">Manga</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="customization-options">
-                    <h2>Opções de Personalização</h2>
                     
-                    <div class="option-group">
-                        <h3>1. Escolha o Modelo</h3>
-                        <div class="model-options">
-                            <div class="model-option active" data-model="tshirt-white">
-                                <img src="images/tshirt-white-thumb.png" alt="Camiseta Branca">
-                                <span>Camiseta Branca</span>
-                            </div>
-                            <div class="model-option" data-model="tshirt-black">
-                                <img src="images/tshirt-black-thumb.png" alt="Camiseta Preta">
-                                <span>Camiseta Preta</span>
-                            </div>
-                            <div class="model-option" data-model="tshirt-gray">
-                                <img src="images/tshirt-gray-thumb.png" alt="Camiseta Cinza">
-                                <span>Camiseta Cinza</span>
-                            </div>
-                            <div class="model-option" data-model="tshirt-blue">
-                                <img src="images/tshirt-blue-thumb.png" alt="Camiseta Azul">
-                                <span>Camiseta Azul</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>2. Escolha o Tamanho</h3>
-                        <div class="size-options">
-                            <div class="size-option">
-                                <input type="radio" id="size-p" name="size" value="P">
-                                <label for="size-p">P</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="size-m" name="size" value="M" checked>
-                                <label for="size-m">M</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="size-g" name="size" value="G">
-                                <label for="size-g">G</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="size-gg" name="size" value="GG">
-                                <label for="size-gg">GG</label>
-                            </div>
-                            <div class="size-option">
-                                <input type="radio" id="size-xgg" name="size" value="XGG">
-                                <label for="size-xgg">XGG</label>
-                            </div>
-                        </div>
-                        <a href="#" class="size-guide-link">Guia de tamanhos <i class="fas fa-ruler"></i></a>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>3. Adicione sua Arte</h3>
-                        <div class="art-options">
-                            <div class="art-upload">
-                                <label for="art-file" class="upload-label">
-                                    <i class="fas fa-upload"></i>
-                                    <span>Enviar arquivo</span>
-                                </label>
-                                <input type="file" id="art-file" accept="image/*" class="upload-input">
-                                <p class="upload-help">Formatos aceitos: PNG, JPG, SVG. Tamanho máximo: 5MB.</p>
-                            </div>
-                            
-                            <div class="art-text">
-                                <h4>Ou adicione um texto</h4>
-                                <input type="text" id="custom-text" placeholder="Digite seu texto aqui" class="text-input">
-                                <div class="text-options">
-                                    <div class="text-option">
-                                        <label>Fonte:</label>
-                                        <select id="text-font">
-                                            <option value="Arial">Arial</option>
-                                            <option value="Verdana">Verdana</option>
-                                            <option value="Georgia">Georgia</option>
-                                            <option value="Times New Roman">Times New Roman</option>
-                                            <option value="Comic Sans MS">Comic Sans MS</option>
-                                        </select>
-                                    </div>
-                                    <div class="text-option">
-                                        <label>Cor:</label>
-                                        <input type="color" id="text-color" value="#000000">
-                                    </div>
+                    <div class="form-section">
+                        <h2><i class="fas fa-paint-brush"></i> Arte para Estampa</h2>
+                        
+                        <div class="form-group">
+                            <label>Você já tem a arte pronta?*</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="art-yes" name="has_art" value="Sim" checked>
+                                    <label for="art-yes">Sim, tenho a arte pronta</label>
                                 </div>
-                                <button class="btn btn-outline" id="add-text-btn">Adicionar Texto</button>
+                                <div class="radio-option">
+                                    <input type="radio" id="art-no" name="has_art" value="Não">
+                                    <label for="art-no">Não, preciso de ajuda para criar</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>4. Escolha a Quantidade</h3>
-                        <div class="quantity-selector">
-                            <button class="quantity-btn" id="quantity-minus">-</button>
-                            <input type="number" id="quantity" value="1" min="1" max="100">
-                            <button class="quantity-btn" id="quantity-plus">+</button>
+                        
+                        <div class="form-group" id="art-upload-group">
+                            <label for="art-file">Envie sua arte (PNG, JPG ou PDF)*</label>
+                            <input type="file" id="art-file" name="attachment" accept=".png,.jpg,.jpeg,.pdf">
+                            <p class="form-help">Formatos aceitos: PNG, JPG, PDF. Tamanho máximo: 10MB.</p>
+                        </div>
+                        
+                        <div class="form-group" id="art-description-group" style="display: none;">
+                            <label for="art-description">Descreva a arte que você deseja*</label>
+                            <textarea id="art-description" name="art_description" rows="4" placeholder="Descreva em detalhes a arte que você gostaria que criássemos para sua camiseta..."></textarea>
                         </div>
                     </div>
                     
-                    <div class="price-summary">
-                        <div class="price-item">
-                            <span>Preço unitário:</span>
-                            <span>R$ 69,90</span>
+                    <div class="form-section">
+                        <h2><i class="fas fa-info-circle"></i> Informações Adicionais</h2>
+                        
+                        <div class="form-group">
+                            <label for="deadline">Prazo Desejado</label>
+                            <input type="date" id="deadline" name="deadline">
                         </div>
-                        <div class="price-item">
-                            <span>Quantidade:</span>
-                            <span id="quantity-display">1</span>
+                        
+                        <div class="form-group">
+                            <label for="additional-info">Observações Adicionais</label>
+                            <textarea id="additional-info" name="additional_info" rows="4" placeholder="Informe qualquer detalhe adicional sobre seu pedido..."></textarea>
                         </div>
-                        <div class="price-item total">
-                            <span>Total:</span>
-                            <span id="total-price">R$ 69,90</span>
+                        
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy_agreement" required>
+                            <label for="privacy">Concordo com a <a href="#">Política de Privacidade</a> e autorizo o contato por e-mail e WhatsApp*</label>
                         </div>
                     </div>
                     
-                    <div class="customization-actions">
-                        <button class="btn btn-outline" id="reset-design">Limpar Design</button>
-                        <button class="btn btn-primary" id="add-to-cart-custom">Adicionar ao Carrinho</button>
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-outline">Limpar Formulário</button>
+                        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -232,26 +258,26 @@
             <div class="steps-container">
                 <div class="step-item">
                     <div class="step-icon">
-                        <i class="fas fa-tshirt"></i>
+                        <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Escolha o Modelo</h3>
-                    <p>Selecione entre nossas opções de camisetas de alta qualidade em diferentes cores.</p>
+                    <h3>Preencha o Formulário</h3>
+                    <p>Informe seus dados e detalhes do pedido para que possamos preparar um orçamento personalizado.</p>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-icon">
-                        <i class="fas fa-paint-brush"></i>
+                        <i class="fas fa-comments"></i>
                     </div>
-                    <h3>Personalize</h3>
-                    <p>Envie sua arte ou crie um texto personalizado para estampar na camiseta.</p>
+                    <h3>Receba o Orçamento</h3>
+                    <p>Nossa equipe analisará seu pedido e enviará um orçamento detalhado por e-mail em até 24 horas.</p>
                 </div>
                 
                 <div class="step-item">
                     <div class="step-icon">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <h3>Adicione ao Carrinho</h3>
-                    <p>Revise seu design, escolha a quantidade e adicione ao carrinho.</p>
+                    <h3>Aprove e Pague</h3>
+                    <p>Após aprovar o orçamento, você receberá instruções para pagamento e confirmação do pedido.</p>
                 </div>
                 
                 <div class="step-item">
@@ -259,7 +285,7 @@
                         <i class="fas fa-truck"></i>
                     </div>
                     <h3>Receba em Casa</h3>
-                    <p>Finalize a compra e receba sua camiseta personalizada em até 15 dias úteis.</p>
+                    <p>Produziremos suas camisetas personalizadas e entregaremos no endereço informado.</p>
                 </div>
             </div>
         </div>
@@ -320,37 +346,37 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Aceitamos arquivos nos formatos PNG, JPG e SVG. Para melhor qualidade de impressão, recomendamos imagens com pelo menos 300 DPI de resolução e fundo transparente (PNG ou SVG).</p>
+                        <p>Aceitamos arquivos nos formatos PNG, JPG e PDF. Para melhor qualidade de impressão, recomendamos imagens com pelo menos 300 DPI de resolução e fundo transparente (PNG).</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Posso solicitar ajustes no meu design?</h3>
+                        <h3>Vocês criam a arte para mim?</h3>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim! Se você precisar de ajustes no seu design, nossa equipe de designers pode ajudar. Após adicionar o produto ao carrinho, você pode incluir observações sobre os ajustes desejados ou entrar em contato conosco pelo WhatsApp.</p>
+                        <p>Sim! Nossa equipe de designers pode criar a arte para sua camiseta. Basta selecionar a opção "Não, preciso de ajuda para criar" no formulário e descrever em detalhes o que você deseja. O valor da criação da arte será incluído no orçamento.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Qual a técnica de impressão utilizada?</h3>
+                        <h3>Qual a quantidade mínima para pedidos?</h3>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Utilizamos a técnica de impressão digital DTG (Direct to Garment), que permite alta definição de cores e detalhes, além de ser mais sustentável por utilizar tintas à base d'água.</p>
+                        <p>Trabalhamos com pedidos a partir de 10 unidades para camisetas personalizadas. Para quantidades menores, consulte nosso catálogo de produtos prontos.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Posso personalizar camisetas em grande quantidade para eventos?</h3>
+                        <h3>Quais são as formas de pagamento?</h3>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim! Temos condições especiais para pedidos em grande quantidade. Entre em contato conosco pelo e-mail corporativo@stampo.com.br para solicitar um orçamento personalizado.</p>
+                        <p>Aceitamos pagamento via PIX, transferência bancária, boleto e cartão de crédito (parcelamento em até 3x sem juros). Para pedidos corporativos, oferecemos condições especiais de pagamento.</p>
                     </div>
                 </div>
             </div>
@@ -420,7 +446,7 @@
                     <ul class="footer-links">
                         <li><i class="fas fa-map-marker-alt"></i> Rua das Estampas, 123</li>
                         <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
-                        <li><i class="fas fa-envelope"></i> contato@stampo.com.br</li>
+                        <li><i class="fas fa-envelope"></i> stampopersonalizados@gmail.com</li>
                     </ul>
                 </div>
             </div>
@@ -454,5 +480,32 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // Script para alternar entre upload de arte e descrição
+        document.addEventListener('DOMContentLoaded', function() {
+            const artYesRadio = document.getElementById('art-yes');
+            const artNoRadio = document.getElementById('art-no');
+            const artUploadGroup = document.getElementById('art-upload-group');
+            const artDescriptionGroup = document.getElementById('art-description-group');
+            
+            artYesRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    artUploadGroup.style.display = 'block';
+                    artDescriptionGroup.style.display = 'none';
+                    document.getElementById('art-file').setAttribute('required', '');
+                    document.getElementById('art-description').removeAttribute('required');
+                }
+            });
+            
+            artNoRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    artUploadGroup.style.display = 'none';
+                    artDescriptionGroup.style.display = 'block';
+                    document.getElementById('art-file').removeAttribute('required');
+                    document.getElementById('art-description').setAttribute('required', '');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
