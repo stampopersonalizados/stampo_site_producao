@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalização - Stampô</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Anúncio superior -->
+    <div class="header-top">
+        <div class="container">
+            <p>Frete grátis para compras acima de R$ 150,00</p>
+        </div>
+    </div>
+
+    <!-- Header e navegação -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/stampo-logo.png" alt="Stampô Logo">
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="categorias.html">Categorias</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="#" class="nav-icon" id="search-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="nav-icon" id="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner da página -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Personalize Sua Camiseta</h1>
+            <p>Crie uma peça única com seu estilo e personalidade</p>
+        </div>
+    </section>
+
+    <!-- Personalização -->
+    <section class="customization-section">
+        <div class="container">
+            <div class="customization-container">
+                <div class="customization-preview">
+                    <h2>Visualização</h2>
+                    <div class="preview-container">
+                        <div class="tshirt-preview">
+                            <img src="images/tshirt-white.png" alt="Camiseta para personalização" id="tshirt-base">
+                            <div class="design-preview" id="design-preview">
+                                <!-- A arte será exibida aqui via JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="preview-controls">
+                            <div class="preview-control">
+                                <label>Girar:</label>
+                                <button class="preview-btn" id="rotate-left"><i class="fas fa-undo"></i></button>
+                                <button class="preview-btn" id="rotate-right"><i class="fas fa-redo"></i></button>
+                            </div>
+                            
+                            <div class="preview-control">
+                                <label>Tamanho:</label>
+                                <button class="preview-btn" id="size-down"><i class="fas fa-minus"></i></button>
+                                <button class="preview-btn" id="size-up"><i class="fas fa-plus"></i></button>
+                            </div>
+                            
+                            <div class="preview-control">
+                                <label>Posição:</label>
+                                <div class="position-controls">
+                                    <button class="preview-btn" id="move-up"><i class="fas fa-arrow-up"></i></button>
+                                    <div class="horizontal-controls">
+                                        <button class="preview-btn" id="move-left"><i class="fas fa-arrow-left"></i></button>
+                                        <button class="preview-btn" id="move-right"><i class="fas fa-arrow-right"></i></button>
+                                    </div>
+                                    <button class="preview-btn" id="move-down"><i class="fas fa-arrow-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="customization-options">
+                    <h2>Opções de Personalização</h2>
+                    
+                    <div class="option-group">
+                        <h3>1. Escolha o Modelo</h3>
+                        <div class="model-options">
+                            <div class="model-option active" data-model="tshirt-white">
+                                <img src="images/tshirt-white-thumb.png" alt="Camiseta Branca">
+                                <span>Camiseta Branca</span>
+                            </div>
+                            <div class="model-option" data-model="tshirt-black">
+                                <img src="images/tshirt-black-thumb.png" alt="Camiseta Preta">
+                                <span>Camiseta Preta</span>
+                            </div>
+                            <div class="model-option" data-model="tshirt-gray">
+                                <img src="images/tshirt-gray-thumb.png" alt="Camiseta Cinza">
+                                <span>Camiseta Cinza</span>
+                            </div>
+                            <div class="model-option" data-model="tshirt-blue">
+                                <img src="images/tshirt-blue-thumb.png" alt="Camiseta Azul">
+                                <span>Camiseta Azul</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>2. Escolha o Tamanho</h3>
+                        <div class="size-options">
+                            <div class="size-option">
+                                <input type="radio" id="size-p" name="size" value="P">
+                                <label for="size-p">P</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="size-m" name="size" value="M" checked>
+                                <label for="size-m">M</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="size-g" name="size" value="G">
+                                <label for="size-g">G</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="size-gg" name="size" value="GG">
+                                <label for="size-gg">GG</label>
+                            </div>
+                            <div class="size-option">
+                                <input type="radio" id="size-xgg" name="size" value="XGG">
+                                <label for="size-xgg">XGG</label>
+                            </div>
+                        </div>
+                        <a href="#" class="size-guide-link">Guia de tamanhos <i class="fas fa-ruler"></i></a>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>3. Adicione sua Arte</h3>
+                        <div class="art-options">
+                            <div class="art-upload">
+                                <label for="art-file" class="upload-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Enviar arquivo</span>
+                                </label>
+                                <input type="file" id="art-file" accept="image/*" class="upload-input">
+                                <p class="upload-help">Formatos aceitos: PNG, JPG, SVG. Tamanho máximo: 5MB.</p>
+                            </div>
+                            
+                            <div class="art-text">
+                                <h4>Ou adicione um texto</h4>
+                                <input type="text" id="custom-text" placeholder="Digite seu texto aqui" class="text-input">
+                                <div class="text-options">
+                                    <div class="text-option">
+                                        <label>Fonte:</label>
+                                        <select id="text-font">
+                                            <option value="Arial">Arial</option>
+                                            <option value="Verdana">Verdana</option>
+                                            <option value="Georgia">Georgia</option>
+                                            <option value="Times New Roman">Times New Roman</option>
+                                            <option value="Comic Sans MS">Comic Sans MS</option>
+                                        </select>
+                                    </div>
+                                    <div class="text-option">
+                                        <label>Cor:</label>
+                                        <input type="color" id="text-color" value="#000000">
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline" id="add-text-btn">Adicionar Texto</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>4. Escolha a Quantidade</h3>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" id="quantity-minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="100">
+                            <button class="quantity-btn" id="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="price-summary">
+                        <div class="price-item">
+                            <span>Preço unitário:</span>
+                            <span>R$ 69,90</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Quantidade:</span>
+                            <span id="quantity-display">1</span>
+                        </div>
+                        <div class="price-item total">
+                            <span>Total:</span>
+                            <span id="total-price">R$ 69,90</span>
+                        </div>
+                    </div>
+                    
+                    <div class="customization-actions">
+                        <button class="btn btn-outline" id="reset-design">Limpar Design</button>
+                        <button class="btn btn-primary" id="add-to-cart-custom">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Escolha o Modelo</h3>
+                    <p>Selecione entre nossas opções de camisetas de alta qualidade em diferentes cores.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Personalize</h3>
+                    <p>Envie sua arte ou crie um texto personalizado para estampar na camiseta.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Adicione ao Carrinho</h3>
+                    <p>Revise seu design, escolha a quantidade e adicione ao carrinho.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Receba em Casa</h3>
+                    <p>Finalize a compra e receba sua camiseta personalizada em até 15 dias úteis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspirações -->
+    <section class="inspiration-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inspirações</h2>
+                <p>Confira alguns designs criados por nossos clientes</p>
+            </div>
+            
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <img src="images/inspiration-1.jpg" alt="Inspiração 1">
+                </div>
+                <div class="inspiration-item">
+                    <img src="images/inspiration-2.jpg" alt="Inspiração 2">
+                </div>
+                <div class="inspiration-item">
+                    <img src="images/inspiration-3.jpg" alt="Inspiração 3">
+                </div>
+                <div class="inspiration-item">
+                    <img src="images/inspiration-4.jpg" alt="Inspiração 4">
+                </div>
+                <div class="inspiration-item">
+                    <img src="images/inspiration-5.jpg" alt="Inspiração 5">
+                </div>
+                <div class="inspiration-item">
+                    <img src="images/inspiration-6.jpg" alt="Inspiração 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual o prazo de produção para camisetas personalizadas?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O prazo de produção para camisetas personalizadas é de 5 a 10 dias úteis, dependendo da complexidade do design e da quantidade solicitada. Após a produção, o prazo de entrega varia de acordo com a sua localização.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quais formatos de arquivo são aceitos para upload?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceitamos arquivos nos formatos PNG, JPG e SVG. Para melhor qualidade de impressão, recomendamos imagens com pelo menos 300 DPI de resolução e fundo transparente (PNG ou SVG).</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Posso solicitar ajustes no meu design?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Se você precisar de ajustes no seu design, nossa equipe de designers pode ajudar. Após adicionar o produto ao carrinho, você pode incluir observações sobre os ajustes desejados ou entrar em contato conosco pelo WhatsApp.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual a técnica de impressão utilizada?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Utilizamos a técnica de impressão digital DTG (Direct to Garment), que permite alta definição de cores e detalhes, além de ser mais sustentável por utilizar tintas à base d'água.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Posso personalizar camisetas em grande quantidade para eventos?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Temos condições especiais para pedidos em grande quantidade. Entre em contato conosco pelo e-mail corporativo@stampo.com.br para solicitar um orçamento personalizado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Fique por dentro das novidades</h2>
+                <p>Cadastre-se para receber ofertas exclusivas, lançamentos e dicas de estilo.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="newsletter-btn">Inscrever-se</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Stampô</h3>
+                    <p>Camisetas personalizadas com seu estilo único. Qualidade, criatividade e exclusividade em cada peça.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categorias</h3>
+                    <ul class="footer-links">
+                        <li><a href="categorias.html#basicas">Camisetas Básicas</a></li>
+                        <li><a href="categorias.html#estampadas">Estampadas</a></li>
+                        <li><a href="categorias.html#personalizadas">Personalizadas</a></li>
+                        <li><a href="categorias.html#premium">Premium</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua das Estampas, 123</li>
+                        <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+                        <li><i class="fas fa-envelope"></i> contato@stampo.com.br</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stampô. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carrinho flutuante -->
+    <div class="cart-popup" id="cart-popup">
+        <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cart-items">
+            <!-- Os itens do carrinho serão inseridos aqui via JavaScript -->
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar no Instagram</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
