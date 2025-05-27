@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalização - Stampô</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/form-minimal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Anúncio superior -->
+    <div class="header-top">
+        <div class="container">
+            <p>Frete grátis para compras acima de R$ 150,00</p>
+        </div>
+    </div>
+
+    <!-- Header e navegação -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="images/stampo-logo.png" alt="Stampô Logo">
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="categorias.html">Categorias</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="#" class="nav-icon" id="search-icon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="nav-icon" id="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner da página -->
+    <section class="page-banner">
+        <div class="container">
+            <h1>Solicite sua Cotação</h1>
+            <p>Preencha o formulário abaixo para solicitar um orçamento personalizado</p>
+        </div>
+    </section>
+
+    <!-- Formulário de Cotação -->
+    <section class="customization-section">
+        <div class="container">
+            <div class="quote-container">
+                <form id="quote-form" action="https://formsubmit.co/stampopersonalizados@gmail.com" method="POST" enctype="multipart/form-data">
+                    <!-- Campo oculto para identificar o formulário -->
+                    <input type="hidden" name="_subject" value="Nova Cotação de Personalização - Site Stampô">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://stampopersonalizados.github.io/stampo-site/obrigado.html">
+                    
+                    <div class="form-section">
+                        <h2>Seus Dados</h2>
+                        
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h2>Detalhes do Pedido</h2>
+                        
+                        <div class="form-group">
+                            <label>Tipo de Camiseta</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="type-basic" name="shirt_type" value="Básica" checked>
+                                    <label for="type-basic">Básica</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="type-premium" name="shirt_type" value="Premium">
+                                    <label for="type-premium">Premium</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="type-polo" name="shirt_type" value="Polo">
+                                    <label for="type-polo">Polo</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Tamanhos e Quantidades</label>
+                            <div class="size-quantities">
+                                <div class="size-quantity">
+                                    <span>P</span>
+                                    <input type="number" name="quantity_p" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>M</span>
+                                    <input type="number" name="quantity_m" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>G</span>
+                                    <input type="number" name="quantity_g" min="0" value="0">
+                                </div>
+                                <div class="size-quantity">
+                                    <span>GG</span>
+                                    <input type="number" name="quantity_gg" min="0" value="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="art-file">Envie sua arte (PNG, JPG ou PDF)</label>
+                            <input type="file" id="art-file" name="attachment" accept=".png,.jpg,.jpeg,.pdf">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional-info">Observações Adicionais</label>
+                            <textarea id="additional-info" name="additional_info" rows="4" placeholder="Informe qualquer detalhe adicional sobre seu pedido..."></textarea>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy_agreement" required>
+                            <label for="privacy">Concordo com a Política de Privacidade e autorizo o contato por e-mail e WhatsApp</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="reset" class="btn btn-outline">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    
+                    <div class="validation-indicator"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Preencha o Formulário</h3>
+                    <p>Informe seus dados e detalhes do pedido para que possamos preparar um orçamento personalizado.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Receba o Orçamento</h3>
+                    <p>Nossa equipe analisará seu pedido e enviará um orçamento detalhado por e-mail em até 24 horas.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Aprove e Pague</h3>
+                    <p>Após aprovar o orçamento, você receberá instruções para pagamento e confirmação do pedido.</p>
+                </div>
+                
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Receba em Casa</h3>
+                    <p>Produziremos suas camisetas personalizadas e entregaremos no endereço informado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Stampô</h3>
+                    <p>Camisetas personalizadas com seu estilo único. Qualidade, criatividade e exclusividade em cada peça.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/stampo" class="social-link" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="categorias.html">Categorias</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categorias</h3>
+                    <ul class="footer-links">
+                        <li><a href="categorias.html#basicas">Camisetas Básicas</a></li>
+                        <li><a href="categorias.html#estampadas">Estampadas</a></li>
+                        <li><a href="categorias.html#personalizadas">Personalizadas</a></li>
+                        <li><a href="categorias.html#premium">Premium</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua das Estampas, 123</li>
+                        <li><i class="fas fa-phone"></i> (11) 98765-4321</li>
+                        <li><i class="fas fa-envelope"></i> stampopersonalizados@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Stampô. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Script para validação do formulário
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quote-form');
+            const emailInput = document.getElementById('email');
+            const validationIndicator = document.querySelector('.validation-indicator');
+            
+            // Validação de e-mail
+            emailInput.addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const emailGroup = emailInput.closest('.form-group');
+                
+                if (!emailRegex.test(emailInput.value)) {
+                    emailGroup.classList.add('error');
+                    emailGroup.classList.remove('success');
+                    
+                    // Adicionar mensagem de erro se não existir
+                    if (!emailGroup.querySelector('.error-message')) {
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'error-message';
+                        errorMessage.textContent = 'Este e-mail não é válido';
+                        emailGroup.appendChild(errorMessage);
+                    }
+                    
+                    validationIndicator.classList.add('error');
+                    validationIndicator.classList.remove('success');
+                } else {
+                    emailGroup.classList.remove('error');
+                    emailGroup.classList.add('success');
+                    
+                    // Remover mensagem de erro se existir
+                    const errorMessage = emailGroup.querySelector('.error-message');
+                    if (errorMessage) {
+                        emailGroup.removeChild(errorMessage);
+                    }
+                    
+                    validationIndicator.classList.remove('error');
+                    validationIndicator.classList.add('success');
+                }
+            });
+            
+            // Validação do formulário no envio
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+                const requiredInputs = form.querySelectorAll('[required]');
+                
+                requiredInputs.forEach(input => {
+                    const inputGroup = input.closest('.form-group');
+                    
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        inputGroup.classList.add('error');
+                        
+                        // Adicionar mensagem de erro se não existir
+                        if (!inputGroup.querySelector('.error-message')) {
+                            const errorMessage = document.createElement('div');
+                            errorMessage.className = 'error-message';
+                            errorMessage.textContent = 'Este campo é obrigatório';
+                            inputGroup.appendChild(errorMessage);
+                        }
+                    } else {
+                        inputGroup.classList.remove('error');
+                        
+                        // Remover mensagem de erro se existir
+                        const errorMessage = inputGroup.querySelector('.error-message');
+                        if (errorMessage) {
+                            inputGroup.removeChild(errorMessage);
+                        }
+                    }
+                });
+                
+                if (!isValid) {
+                    event.preventDefault();
+                    validationIndicator.classList.add('error');
+                    validationIndicator.classList.remove('success');
+                } else {
+                    validationIndicator.classList.remove('error');
+                    validationIndicator.classList.add('success');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
