@@ -11,440 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    /* Reset e Estilos Globais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        .header-top {
-            background-color: #6c63ff;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo img {
-            height: 50px;
-        }
-        
-        /* Banner */
-        .page-banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/banner-cotacao.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        
-        .page-banner h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Estilos do Formulário */
-        .quote-container {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            padding: 2.5rem;
-            margin: 2rem 0;
-        }
-        
-        .form-section {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .form-section:last-child {
-            border-bottom: none;
-            margin-bottom: 1rem;
-        }
-        
-        .form-section h2 {
-            color: #333;
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .form-section h2 i {
-            color: #6c63ff;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-        
-        .form-group {
-            flex: 1;
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 500;
-            color: #555;
-        }
-        
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group input[type="date"],
-        .form-group textarea,
-        .form-group input[type="file"] {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: #6c63ff;
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-            outline: none;
-        }
-        
-        .radio-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .radio-option {
-            display: flex;
-            align-items: center;
-            background: #f8f9fa;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .radio-option:hover {
-            background: #f1f3f5;
-        }
-        
-        .radio-option input {
-            margin-right: 0.6rem;
-        }
-        
-        .size-quantities {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .size-quantity {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 60px;
-        }
-        
-        .size-quantity span {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        
-        .size-quantity input {
-            width: 100%;
-            text-align: center;
-            padding: 0.5rem;
-        }
-        
-        .form-help {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 0.4rem;
-        }
-        
-        .form-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-        }
-        
-        .form-checkbox input {
-            margin-top: 0.3rem;
-        }
-        
-        .form-checkbox label {
-            margin-bottom: 0;
-        }
-        
-        /* Botões */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            gap: 0.5rem;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #6c63ff;
-            color: #6c63ff;
-        }
-        
-        .btn-outline:hover {
-            background: #f8f9fa;
-        }
-        
-        .btn-primary {
-            background: #6c63ff;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #5a52e0;
-        }
-        
-        .form-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        /* Seção Como Funciona */
-        .how-it-works {
-            padding: 60px 0;
-            background: #f5f7fa;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .step-item {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-        
-        .step-icon {
-            width: 70px;
-            height: 70px;
-            background: #6c63ff;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5rem;
-        }
-        
-        .step-item h3 {
-            margin-bottom: 15px;
-            color: #444;
-        }
-        
-        /* Seção FAQ */
-        .faq-section {
-            padding: 60px 0;
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            margin-bottom: 15px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px;
-            background: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .faq-question h3 {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .faq-toggle {
-            color: #6c63ff;
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            background: #f9f9f9;
-            display: none;
-        }
-        
-        .faq-answer p {
-            padding: 20px 0;
-        }
-        
-        /* Footer */
-        footer {
-            background: #2a2a2a;
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-            list-style: none;
-        }
-        
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #6c63ff;
-        }
-        
-        .footer-links i {
-            margin-right: 10px;
-            width: 20px;
-            color: #6c63ff;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-link {
-            color: white;
-            background: #444;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .social-link:hover {
-            background: #6c63ff;
-            transform: translateY(-3px);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .radio-group {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .quote-container {
-                padding: 1.5rem;
-            }
-            
-            .page-banner h1 {
-                font-size: 2rem;
-            }
-            
-            .form-actions {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
+    
     <!-- Anúncio superior -->
     <div class="header-top">
         <div class="container">
@@ -494,199 +61,299 @@
     </section>
 
     <!-- Formulário de Cotação -->
-    <section class="customization-section">
-        <div class="container">
-            <div class="quote-container">
-                <form id="quote-form" action="https://formsubmit.co/stampopersonalizados@gmail.com" method="POST" enctype="multipart/form-data">
-                    <!-- Campo oculto para identificar o formulário -->
-                    <input type="hidden" name="_subject" value="Nova Cotação de Personalização - Site Stampô">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://stampopersonalizados.github.io/stampo-site/obrigado.html">
-                    
-                    <div class="form-section">
-                        <h2><i class="fas fa-user"></i> Seus Dados</h2>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name">Nome Completo*</label>
-                                <input type="text" id="name" name="name" required placeholder="Digite seu nome completo">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail*</label>
-                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+<section class="customization-section">
+    <div class="container">
+        <div class="quote-container">
+            <form id="quote-form" action="https://formsubmit.co/stampopersonalizados@gmail.com" method="POST" enctype="multipart/form-data">
+                <!-- Campo oculto para identificar o formulário -->
+                <input type="hidden" name="_subject" value="Nova Cotação de Personalização - Site Stampô">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://stampopersonalizados.github.io/stampo-site/obrigado.html">
+                
+                <!-- Seção 1: Dados Pessoais -->
+                <div class="form-section">
+                    <h2><i class="fas fa-user-circle"></i> Informações Pessoais</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo*</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
                             </div>
                         </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Telefone/WhatsApp*</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
-                            </div>
-                            <div class="form-group">
-                                <label for="city">Cidade/Estado</label>
-                                <input type="text" id="city" name="city" placeholder="Ex: São Paulo, SP">
+                        <div class="form-group">
+                            <label for="email">E-mail*</label>
+                            <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="form-section">
-                        <h2><i class="fas fa-tshirt"></i> Detalhes do Pedido</h2>
-                        
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp*</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(00) 00000-0000">
+                            <div class="input-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Cidade/Estado*</label>
+                            <input type="text" id="city" name="city" required placeholder="Sua cidade e estado">
+                            <div class="input-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seção 2: Especificações do Produto -->
+                <div class="form-section">
+                    <h2><i class="fas fa-tshirt"></i> Especificações do Produto</h2>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <label>Tipo de Camiseta*</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" id="type-basic" name="shirt_type" value="Básica" checked>
-                                    <span>Básica</span>
+                            <div class="custom-radio-group">
+                                <label class="custom-radio">
+                                    <input type="radio" name="shirt_type" value="Básica" checked>
+                                    <span class="radio-btn"><i class="fas fa-check"></i></span>
+                                    <span class="radio-label">Básica</span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="type-premium" name="shirt_type" value="Premium">
-                                    <span>Premium</span>
+                                <label class="custom-radio">
+                                    <input type="radio" name="shirt_type" value="Premium">
+                                    <span class="radio-btn"><i class="fas fa-check"></i></span>
+                                    <span class="radio-label">Premium</span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="type-polo" name="shirt_type" value="Polo">
-                                    <span>Polo</span>
+                                <label class="custom-radio">
+                                    <input type="radio" name="shirt_type" value="Polo">
+                                    <span class="radio-btn"><i class="fas fa-check"></i></span>
+                                    <span class="radio-label">Polo</span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="type-other" name="shirt_type" value="Outro">
-                                    <span>Outro</span>
+                                <label class="custom-radio">
+                                    <input type="radio" name="shirt_type" value="Outro">
+                                    <span class="radio-btn"><i class="fas fa-check"></i></span>
+                                    <span class="radio-label">Outro</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label>Cor da Camiseta*</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" id="color-white" name="shirt_color" value="Branca" checked>
-                                    <span>Branca</span>
+                            <div class="color-options">
+                                <label class="color-option white" data-color="Branca">
+                                    <input type="radio" name="shirt_color" value="Branca" checked>
+                                    <span class="color-check"><i class="fas fa-check"></i></span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="color-black" name="shirt_color" value="Preta">
-                                    <span>Preta</span>
+                                <label class="color-option black" data-color="Preta">
+                                    <input type="radio" name="shirt_color" value="Preta">
+                                    <span class="color-check"><i class="fas fa-check"></i></span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="color-gray" name="shirt_color" value="Cinza">
-                                    <span>Cinza</span>
+                                <label class="color-option gray" data-color="Cinza">
+                                    <input type="radio" name="shirt_color" value="Cinza">
+                                    <span class="color-check"><i class="fas fa-check"></i></span>
                                 </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="color-other" name="shirt_color" value="Outra">
-                                    <span>Outra</span>
+                                <label class="color-option other" data-color="Outra">
+                                    <input type="radio" name="shirt_color" value="Outra">
+                                    <span class="other-label">Outra</span>
                                 </label>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label>Tamanhos e Quantidades*</label>
-                            <div class="size-quantities">
-                                <div class="size-quantity">
-                                    <span>P</span>
-                                    <input type="number" name="quantity_p" min="0" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tamanhos e Quantidades*</label>
+                        <div class="size-quantity-grid">
+                            <div class="size-quantity-item">
+                                <label>P</label>
+                                <input type="number" name="quantity_p" min="0" value="0" class="quantity-input">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-minus"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="quantity-plus"><i class="fas fa-plus"></i></button>
                                 </div>
-                                <div class="size-quantity">
-                                    <span>M</span>
-                                    <input type="number" name="quantity_m" min="0" value="0">
+                            </div>
+                            <div class="size-quantity-item">
+                                <label>M</label>
+                                <input type="number" name="quantity_m" min="0" value="0" class="quantity-input">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-minus"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="quantity-plus"><i class="fas fa-plus"></i></button>
                                 </div>
-                                <div class="size-quantity">
-                                    <span>G</span>
-                                    <input type="number" name="quantity_g" min="0" value="0">
+                            </div>
+                            <div class="size-quantity-item">
+                                <label>G</label>
+                                <input type="number" name="quantity_g" min="0" value="0" class="quantity-input">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-minus"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="quantity-plus"><i class="fas fa-plus"></i></button>
                                 </div>
-                                <div class="size-quantity">
-                                    <span>GG</span>
-                                    <input type="number" name="quantity_gg" min="0" value="0">
+                            </div>
+                            <div class="size-quantity-item">
+                                <label>GG</label>
+                                <input type="number" name="quantity_gg" min="0" value="0" class="quantity-input">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-minus"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="quantity-plus"><i class="fas fa-plus"></i></button>
                                 </div>
-                                <div class="size-quantity">
-                                    <span>XGG</span>
-                                    <input type="number" name="quantity_xgg" min="0" value="0">
+                            </div>
+                            <div class="size-quantity-item">
+                                <label>XGG</label>
+                                <input type="number" name="quantity_xgg" min="0" value="0" class="quantity-input">
+                                <div class="quantity-controls">
+                                    <button type="button" class="quantity-minus"><i class="fas fa-minus"></i></button>
+                                    <button type="button" class="quantity-plus"><i class="fas fa-plus"></i></button>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label>Tipo de Estampa*</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" id="print-front" name="print_location" value="Frente" checked>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Localização da Estampa*</label>
+                        <div class="print-location-options">
+                            <label class="print-option">
+                                <input type="radio" name="print_location" value="Frente" checked>
+                                <div class="print-preview front">
+                                    <i class="fas fa-tshirt"></i>
                                     <span>Frente</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="print-back" name="print_location" value="Costas">
+                                </div>
+                            </label>
+                            <label class="print-option">
+                                <input type="radio" name="print_location" value="Costas">
+                                <div class="print-preview back">
+                                    <i class="fas fa-tshirt"></i>
                                     <span>Costas</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="print-both" name="print_location" value="Frente e Costas">
-                                    <span>Frente e Costas</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="print-sleeve" name="print_location" value="Manga">
+                                </div>
+                            </label>
+                            <label class="print-option">
+                                <input type="radio" name="print_location" value="Frente e Costas">
+                                <div class="print-preview both">
+                                    <i class="fas fa-tshirt"></i>
+                                    <span>Ambos</span>
+                                </div>
+                            </label>
+                            <label class="print-option">
+                                <input type="radio" name="print_location" value="Manga">
+                                <div class="print-preview sleeve">
+                                    <i class="fas fa-tshirt"></i>
                                     <span>Manga</span>
-                                </label>
-                            </div>
+                                </div>
+                            </label>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Seção 3: Detalhes da Arte -->
+                <div class="form-section">
+                    <h2><i class="fas fa-paint-brush"></i> Detalhes da Arte</h2>
                     
-                    <div class="form-section">
-                        <h2><i class="fas fa-paint-brush"></i> Arte para Estampa</h2>
-                        
-                        <div class="form-group">
-                            <label>Você já tem a arte pronta?*</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" id="art-yes" name="has_art" value="Sim" checked>
+                    <div class="form-group">
+                        <label class="art-option-title">Você já tem a arte pronta?*</label>
+                        <div class="art-options">
+                            <label class="art-option">
+                                <input type="radio" name="has_art" value="Sim" checked>
+                                <div class="art-option-card">
+                                    <i class="fas fa-file-upload"></i>
                                     <span>Sim, tenho a arte pronta</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" id="art-no" name="has_art" value="Não">
-                                    <span>Não, preciso de ajuda para criar</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" id="art-upload-group">
-                            <label for="art-file" id="art-file-label">Envie sua arte (PNG, JPG ou PDF)*</label>
-                            <input type="file" id="art-file" name="attachment" accept=".png,.jpg,.jpeg,.pdf">
-                            <p class="form-help">Formatos aceitos: PNG, JPG, PDF. Tamanho máximo: 10MB.</p>
-                            <div id="file-preview" style="margin-top: 10px;"></div>
-                        </div>
-                        
-                        <div class="form-group" id="art-description-group" style="display: none;">
-                            <label for="art-description">Descreva a arte que você deseja*</label>
-                            <textarea id="art-description" name="art_description" rows="4" placeholder="Descreva em detalhes a arte que você gostaria que criássemos para sua camiseta..."></textarea>
-                            <p class="form-help">Inclua cores, texto, estilo e qualquer outra informação relevante.</p>
+                                </div>
+                            </label>
+                            <label class="art-option">
+                                <input type="radio" name="has_art" value="Não">
+                                <div class="art-option-card">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                    <span>Preciso de ajuda para criar</span>
+                                </div>
+                            </label>
                         </div>
                     </div>
                     
-                    <div class="form-section">
-                        <h2><i class="fas fa-info-circle"></i> Informações Adicionais</h2>
-                        
+                    <div class="form-group" id="art-upload-group">
+                        <div class="file-upload-area">
+                            <label for="art-file" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span class="file-upload-text">Arraste e solte sua arte aqui ou clique para selecionar</span>
+                                <span class="file-upload-hint">Formatos aceitos: PNG, JPG, PDF (Até 10MB)</span>
+                                <input type="file" id="art-file" name="attachment" accept=".png,.jpg,.jpeg,.pdf">
+                            </label>
+                            <div id="file-preview-container" class="file-preview-container">
+                                <div id="file-preview"></div>
+                                <button type="button" id="remove-file" class="remove-file-btn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="art-description-group" style="display: none;">
+                        <label for="art-description">Descreva sua ideia*</label>
+                        <div class="art-description-box">
+                            <textarea id="art-description" name="art_description" rows="4" placeholder="Descreva em detalhes como você quer sua estampa..."></textarea>
+                            <div class="description-tips">
+                                <p><i class="fas fa-lightbulb"></i> Dicas para nos ajudar:</p>
+                                <ul>
+                                    <li>Cores preferidas</li>
+                                    <li>Texto que deseja incluir</li>
+                                    <li>Estilo (minimalista, vintage, etc.)</li>
+                                    <li>Referências visuais (se tiver)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Seção 4: Informações Adicionais -->
+                <div class="form-section">
+                    <h2><i class="fas fa-info-circle"></i> Informações Adicionais</h2>
+                    
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="deadline">Prazo Desejado</label>
-                            <input type="date" id="deadline" name="deadline">
+                            <div class="date-input-container">
+                                <input type="date" id="deadline" name="deadline">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="additional-info">Observações Adicionais</label>
-                            <textarea id="additional-info" name="additional_info" rows="4" placeholder="Informe qualquer detalhe adicional sobre seu pedido..."></textarea>
-                        </div>
-                        
-                        <div class="form-group form-checkbox">
-                            <input type="checkbox" id="privacy" name="privacy_agreement" required>
-                            <label for="privacy">Concordo com a <a href="#" style="color: #6c63ff;">Política de Privacidade</a> e autorizo o contato por e-mail e WhatsApp*</label>
+                            <label for="urgency">Urgência</label>
+                            <select id="urgency" name="urgency" class="custom-select">
+                                <option value="Sem urgência">Sem urgência</option>
+                                <option value="1-2 semanas">1-2 semanas</option>
+                                <option value="3-5 dias">3-5 dias</option>
+                                <option value="Urgente (1-2 dias)">Urgente (1-2 dias)</option>
+                            </select>
                         </div>
                     </div>
                     
-                    <div class="form-actions">
-                        <button type="reset" class="btn btn-outline">
-                            <i class="fas fa-eraser"></i> Limpar Formulário
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
-                        </button>
+                    <div class="form-group">
+                        <label for="additional-info">Observações Adicionais</label>
+                        <textarea id="additional-info" name="additional_info" rows="3" placeholder="Alguma informação extra que devemos considerar?"></textarea>
                     </div>
-                </form>
-            </div>
+                    
+                    <div class="form-group terms-container">
+                        <div class="custom-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy_agreement" required>
+                            <label for="privacy"></label>
+                        </div>
+                        <label for="privacy" class="terms-label">
+                            Concordo com a <a href="#" class="terms-link">Política de Privacidade</a> e autorizo o contato por e-mail e WhatsApp*
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Botões de Ação -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Limpar Formulário
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Solicitar Cotação
+                    </button>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Como Funciona -->
     <section class="how-it-works">
